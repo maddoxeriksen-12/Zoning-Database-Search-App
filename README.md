@@ -26,6 +26,12 @@ A sophisticated React-based web application for searching and displaying municip
 
 ## 🚀 Quick Start
 
+**Clone Repository**
+```bash
+git clone https://github.com/maddoxeriksen-12/Zoning-Database-Search-App.git
+```
+
+
 ### Using Docker (Recommended)
 
 1. **Start the application:**
