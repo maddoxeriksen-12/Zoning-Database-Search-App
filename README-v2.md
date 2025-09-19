@@ -1,16 +1,6 @@
 # 🏠 Zoning Search App
 
-**✨ Version 2.0 - Pre-configured with Database Access!** Ready to use immediately.
-
 A modern React application for searching zoning information by zone code, municipality, and state. Built with Vite, React, and Supabase.
-
-## 🔒 Security
-
-This app uses **read-only access** to the database:
-- Cannot modify, delete, or add any data
-- Uses Supabase Row Level Security (RLS) 
-- Safe to share and use publicly
-- See [SECURITY.md](SECURITY.md) for details
 
 ## ✨ Features
 
@@ -30,14 +20,17 @@ This app uses **read-only access** to the database:
 
 ## 🚀 Quick Start
 
-### ⚡ Option 1: Use Pre-Configured Access (Recommended)
+### Prerequisites
 
-**The app comes pre-configured with database access!** No Supabase setup required.
+- Node.js 18+ installed
+- Supabase project with zoning data
+
+### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/maddoxeriksen-12/Zoning-Database-Search-App.git
-   cd Zoning-Database-Search-App
+   git clone <your-repo-url>
+   cd zoning-search-app
    ```
 
 2. **Install dependencies**
@@ -45,39 +38,24 @@ This app uses **read-only access** to the database:
    npm install
    ```
 
-3. **Start the app**
+3. **Configure environment variables**
    ```bash
-   npm run dev
+   cp .env.example .env
    ```
-
-4. **Open in browser**
-   Navigate to `http://localhost:5173` and start searching!
-
-### 🔧 Option 2: Use Your Own Supabase Project
-
-If you want to use your own database:
-
-1. **Clone and install**
-   ```bash
-   git clone <your-repo-url>
-   cd zoning-search-app
-   npm install
+   
+   Edit `.env` and add your Supabase configuration:
    ```
-
-2. **Configure your Supabase credentials**
-   Edit `src/lib/supabase.js` and replace with your credentials:
-   ```javascript
-   const supabaseUrl = 'https://your-project.supabase.co'
-   const supabaseKey = 'your-anon-key'
+   VITE_SUPABASE_URL=your-supabase-url-here
+   VITE_SUPABASE_ANON_KEY=your-supabase-anon-key-here
    ```
-
-3. **Run the security setup**
-   Execute `supabase-setup.sql` in your Supabase SQL Editor
 
 4. **Start development server**
    ```bash
    npm run dev
    ```
+
+5. **Open in browser**
+   Navigate to `http://localhost:5173`
 
 ## 🌐 Deployment to GitHub Pages
 

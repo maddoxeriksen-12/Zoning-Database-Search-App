@@ -1,17 +1,14 @@
 {
   "name": "zoning-search-app",
-  "version": "1.0.0",
-  "description": "A React app for searching municipal zoning codes and regulations",
-  "author": "Maddox Eriksen",
-  "license": "MIT",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && npx gh-pages -d dist",
-    "test-connection": "node test-connection.js"
+    "deploy": "npm run build && npx gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.1.1",
