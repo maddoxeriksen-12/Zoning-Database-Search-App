@@ -1,248 +1,171 @@
-# 🏠 Zoning Worker - Complete Zoning Data Processing System
+# Zoning Search App Public V2
 
-A comprehensive system for extracting, processing, and serving zoning information from municipal PDFs.
+## 🏠 Advanced Zoning Information Search Application
 
-## 🚨 Security Notice
+A sophisticated React-based web application for searching and displaying municipal zoning information with comprehensive zone matching capabilities.
 
-**IMPORTANT**: This repository contains sanitized code with placeholder credentials. To use this system:
+## ✨ Features
 
-1. **Never commit real credentials to git**
-2. **Copy `.env.example` files to `.env` and add your own credentials**
-3. **Set up your own Supabase project (see setup instructions below)**
+### 🔍 **Smart Search Capabilities**
+- **Partial Zone Matching**: Search "R-15" to find "R-15", "R-15A", "R-15 Nonconforming", etc.
+- **Municipality-Only Search**: Search "Brick" to see all zones in that town
+- **Multi-Strategy Search**: Comprehensive search using multiple approaches to find all relevant zones
+- **Intelligent Parsing**: Handles complex searches like "R-15 Middletown NJ"
 
-## 🏗️ System Architecture
+### 📋 **Detailed Zone Information**
+- **Zone Requirements Display**: Shows minimum area, frontage, and buildable lot coverage
+- **Location Details**: Municipality, county, and state information
+- **Ordinance Links**: Direct links to official zoning ordinances when available
+- **Professional Layout**: Clean, easy-to-read zone cards
 
-This system consists of three main components:
-
-### 1. 🔄 Zoning Worker (`/zoning-worker`)
-**Purpose**: Processes PDF documents to extract zoning information
-- Docker-based Python worker
-- Supabase integration for data storage
-- OCR and text processing capabilities
-- Automated PDF ingestion pipeline
-
-### 2. 🗄️ Database Setup (`/database`)
-**Purpose**: Complete Supabase database schema with Row Level Security
-- PostgreSQL schema for zones, standards, and ingestion jobs
-- RPC functions for API access
-- Comprehensive Row Level Security policies
-- Sample data for testing
-
-### 3. 🌐 React Search App (`/zoning-search-app`)
-**Purpose**: Public-facing search interface
-- React + Vite frontend
-- Supabase client integration
-- Smart search with input parsing
-- Clean UI with JSON and card displays
-- GitHub Pages deployment ready
+### 🎯 **Advanced Matching**
+- **Exact Matches**: Prioritizes exact zone code matches
+- **Partial Matches**: Finds zones that start with your search term
+- **Long Zone Names**: Handles complex zone codes like "R-15 Nonconforming 5,001 -10,000 SF lots"
+- **Cross-Reference Search**: Uses multiple search strategies to ensure comprehensive results
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Docker & Docker Compose
-- Node.js 18+ (for React app)
-- Supabase account
+### Using Docker (Recommended)
 
-### 1. Set Up Supabase Database
-
-1. Create a new project at [supabase.com](https://supabase.com)
-2. Run the database setup:
-   ```sql
-   -- In Supabase SQL Editor, run:
-   \\i database/setup.sql
-   ```
-3. Note your project URL and keys from Settings > API
-
-### 2. Configure Zoning Worker
-
-1. Copy environment file:
+1. **Start the application:**
    ```bash
-   cd zoning-worker
-   cp .env.example .env
+   npm run docker:up
    ```
 
-2. Update `.env` with your Supabase credentials:
-   ```env
-   SUPABASE_URL=https://your-project-id.supabase.co
-   SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
-   POLL_INTERVAL_SECONDS=5
-   BATCH_SIZE=1
-   CONFIDENCE_THRESHOLD=0.90
-   STORAGE_BUCKET=zoning-pdfs
-   AUTO_INGEST=true
+2. **Open your browser:**
+   ```
+   http://localhost:3000
    ```
 
-3. Start the worker:
+3. **Stop the application:**
    ```bash
-   docker-compose up --build
+   npm run docker:down
    ```
 
-### 3. Set Up React Search App
+### Local Development
 
-1. Copy environment file:
-   ```bash
-   cd zoning-search-app
-   cp .env.example .env.local
-   ```
-
-2. Update `.env.local` with your Supabase credentials:
-   ```env
-   VITE_SUPABASE_URL=https://your-project-id.supabase.co
-   VITE_SUPABASE_ANON_KEY=your-anon-key-here
-   ```
-
-3. Install and run:
+1. **Install dependencies:**
    ```bash
    npm install
+   ```
+
+2. **Start development server:**
+   ```bash
    npm run dev
    ```
 
-4. Deploy to GitHub Pages:
+3. **Build for production:**
    ```bash
-   npm run deploy
+   npm run build
    ```
 
-## 📋 Features
+## 📖 How to Use
 
-### Zoning Worker Features
-- ✅ **PDF Processing**: Extracts text and tables from zoning PDFs
-- ✅ **OCR Support**: Handles scanned documents
-- ✅ **Smart Parsing**: Identifies zoning codes, setbacks, lot sizes
-- ✅ **Database Integration**: Stores extracted data in structured format
-- ✅ **Depth Measurements**: Extracts lot depth requirements
-- ✅ **Error Handling**: Robust processing with confidence scoring
+### Example Searches
 
-### Database Features
-- ✅ **Complete Schema**: Tables for zones, standards, ingestion jobs
-- ✅ **Row Level Security**: Public read, admin write access
-- ✅ **Search Functions**: Optimized RPC functions for frontend
-- ✅ **Sample Data**: Ready-to-use test data included
-- ✅ **Flexible Storage**: JSONB for extensible standards
+| Search Query | Results |
+|--------------|---------|
+| `R-15 Middletown NJ` | All R-15 zones in Middletown, NJ |
+| `Brick` | All zones in Brick township |
+| `R-22` | R-22, R-22A, R-22B, etc. across all locations |
+| `B-1 Ocean County` | B-1 zones in Ocean County |
 
-### React App Features
-- ✅ **Smart Search**: Parses natural language queries
-- ✅ **Input Disambiguation**: Prompts for missing location info
-- ✅ **Dual Display**: JSON view and clean card UI
-- ✅ **Responsive Design**: Works on desktop and mobile
-- ✅ **GitHub Pages Ready**: Single command deployment
+### Search Tips
+
+- **Include State**: Adding "NJ" helps narrow results
+- **Municipality Names**: Works with multi-word names like "East Brunswick"
+- **Partial Zone Codes**: "R-15" finds all R-15 variants
+- **County Search**: Use "Ocean County" for county-wide results
+
+## 🏗️ Architecture
+
+### Frontend
+- **React 19**: Modern React with latest features
+- **Vite**: Fast build tool and development server
+- **CSS Grid/Flexbox**: Responsive layout system
+
+### Backend Integration
+- **Supabase**: Real-time database with RPC functions
+- **Multiple Search Strategies**: Comprehensive zone discovery
+- **Smart Filtering**: Relevance-based result ranking
+
+### Deployment
+- **Docker**: Containerized deployment
+- **Nginx**: Production-ready web server
+- **Multi-stage Build**: Optimized for production
+
+## 📁 Project Structure
+
+```
+Zoning-Search-App-PublicV2/
+├── src/
+│   ├── components/
+│   │   └── ZoneSearch.jsx       # Main search component
+│   ├── lib/
+│   │   └── supabase.js          # Database connection
+│   ├── utils/
+│   │   └── searchParser.js      # Search logic utilities
+│   ├── App.jsx                  # Root component
+│   ├── App.css                  # Application styles
+│   └── main.jsx                 # Application entry point
+├── public/                      # Static assets
+├── Dockerfile                   # Container configuration
+├── docker-compose.yml           # Container orchestration
+├── nginx.conf                   # Web server configuration
+└── package.json                 # Dependencies and scripts
+```
 
 ## 🔧 Configuration
 
-### Zoning Worker Settings
-
-| Setting | Description | Default |
-|---------|-------------|---------|
-| `POLL_INTERVAL_SECONDS` | How often to check for new jobs | 5 |
-| `BATCH_SIZE` | Number of jobs to process at once | 1 |
-| `CONFIDENCE_THRESHOLD` | Minimum confidence for extraction | 0.90 |
-| `STORAGE_BUCKET` | Supabase storage bucket name | zoning-pdfs |
-| `AUTO_INGEST` | Automatically process new jobs | true |
-
-### Database Configuration
-
-The database supports multiple user roles:
-- **Public/Anonymous**: Read published zones only
-- **Authenticated**: Same as anonymous (extensible)
-- **zone_worker**: Read/write zones and standards
-- **zone_admin**: Full access to all tables
-
-### React App Configuration
-
-Set these environment variables:
-- `VITE_SUPABASE_URL`: Your Supabase project URL
-- `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
-
-## 📊 Usage Examples
-
-### Search Examples
-```
-# Search by zone code
-R-20
-
-# Search by municipality
-Brick Township NJ
-
-# Combined search
-R-15 Middletown NJ
-
-# Partial matches work too
-R-15 Middle
+### Environment Variables (Optional)
+```bash
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_key
 ```
 
-### Database Queries
-```sql
--- Search zones
-SELECT * FROM search_zones('R-20');
+### Docker Configuration
+- **Port**: 3000
+- **Base Image**: Node.js 18 Alpine
+- **Web Server**: Nginx
+- **Build Type**: Multi-stage production build
 
--- Get zones with depth measurements
-SELECT zone_code, municipality, depth_interior_lots_ft 
-FROM search_zones('NJ') 
-WHERE depth_interior_lots_ft IS NOT NULL;
+## 🚀 Deployment
 
--- Check processing status
-SELECT * FROM ingestion_jobs WHERE status = 'PENDING';
+### Production Build
+```bash
+npm run build
 ```
 
-## 🛠️ Development
+### Docker Deployment
+```bash
+# Build and start
+docker-compose up --build -d
 
-### Adding New Zoning Standards
-
-1. Update the database schema in `database/01_schema.sql`
-2. Modify the worker parser in `zoning-worker/worker/parsers.py`
-3. Update the React UI components as needed
-
-### Extending Search Functionality
-
-1. Modify `search_zones()` function in `database/02_rpc_functions.sql`
-2. Update React search components in `zoning-search-app/src/components/`
-
-### Custom Deployment
-
-- **Worker**: Modify `docker-compose.yml` for your deployment environment
-- **Database**: SQL files work with any PostgreSQL 14+ instance
-- **Frontend**: Vite supports deployment to any static hosting service
-
-## 🆘 Troubleshooting
-
-### Common Issues
-
-**"Permission denied" errors**
-```sql
--- Check RLS policies
-SELECT * FROM pg_policies WHERE tablename = 'zones';
-
--- Grant missing permissions
-GRANT EXECUTE ON FUNCTION search_zones(text) TO anon;
+# Scale if needed
+docker-compose up --scale zoning-search-app=3
 ```
 
-**No search results**
-```sql
--- Verify data exists
-SELECT COUNT(*) FROM zones WHERE published = true;
+## 🤝 Contributing
 
--- Test RLS access
-SET ROLE anon;
-SELECT COUNT(*) FROM zones;
-RESET ROLE;
-```
+This is a production-ready application. For modifications:
 
-**Worker not processing**
-- Check Docker logs: `docker-compose logs -f`
-- Verify environment variables in `.env`
-- Ensure Supabase credentials are correct
-
-## 📞 Support
-
-This is an open-source project. For issues:
-1. Check the troubleshooting section above
-2. Review the database and worker logs
-3. Verify your Supabase configuration
-4. Test with the sample data provided
+1. Test thoroughly with various search queries
+2. Maintain the multi-strategy search approach
+3. Ensure responsive design across devices
+4. Verify Docker builds successfully
 
 ## 📄 License
 
-This project is open source. Use responsibly and ensure you comply with your municipality's data usage policies.
+This project is configured for public use with read-only database access.
+
+## 🔗 Database
+
+Connected to a pre-configured Supabase instance with:
+- **Read-only access**: Safe for public deployment
+- **Row Level Security**: Data protection enabled
+- **Public credentials**: Safe to share (anon key only)
 
 ---
 
-**Security Reminder**: Always use your own Supabase credentials. Never commit real API keys to version control.
+**Version 2.0** - Enhanced with advanced search capabilities and comprehensive zone information display.
