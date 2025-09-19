@@ -29,6 +29,7 @@ A sophisticated React-based web application for searching and displaying municip
 **Clone Repository**
 ```bash
 git clone https://github.com/maddoxeriksen-12/Zoning-Database-Search-App.git
+cd Zoning-Search-App-PublicV2
 ```
 
 
