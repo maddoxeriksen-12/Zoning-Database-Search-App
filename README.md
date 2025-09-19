@@ -26,11 +26,26 @@ A sophisticated React-based web application for searching and displaying municip
 
 ## 🚀 Quick Start
 
-**Clone Repository**
+## 📥 Download & Installation
+
+### Option 1: Clone the Repository
 ```bash
+# Clone the repository
 git clone https://github.com/maddoxeriksen-12/Zoning-Database-Search-App.git
+
+# Navigate to the project directory
+cd Zoning-Database-Search-App
+
+# Go to the V2 application folder
 cd Zoning-Search-App-PublicV2
 ```
+
+### Option 2: Download ZIP
+1. Go to: https://github.com/maddoxeriksen-12/Zoning-Database-Search-App
+2. Click the green "Code" button
+3. Select "Download ZIP"
+4. Extract the ZIP file
+5. Navigate to `Zoning-Search-App-PublicV2/` folder
 
 
 ### Using Docker (Recommended)
@@ -42,7 +57,7 @@ cd Zoning-Search-App-PublicV2
 
 2. **Open your browser:**
    ```
-   http://localhost:3000
+   http://localhost:3001
    ```
 
 3. **Stop the application:**
