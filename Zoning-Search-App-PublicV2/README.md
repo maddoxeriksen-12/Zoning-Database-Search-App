@@ -33,9 +33,6 @@ git clone https://github.com/maddoxeriksen-12/Zoning-Database-Search-App.git
 
 # Navigate to the project directory
 cd Zoning-Database-Search-App
-
-# Go to the V2 application folder
-cd Zoning-Search-App-PublicV2
 ```
 
 ### Option 2: Download ZIP
@@ -43,7 +40,7 @@ cd Zoning-Search-App-PublicV2
 2. Click the green "Code" button
 3. Select "Download ZIP"
 4. Extract the ZIP file
-5. Navigate to `Zoning-Search-App-PublicV2/` folder
+5. Navigate to the extracted folder
 
 ## 🚀 Quick Start
 
