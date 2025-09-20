@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  zoning_worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    env_file:
+      - ../.env
+    restart: unless-stopped

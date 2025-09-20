@@ -1,0 +1,9 @@
+services:
+  zoning-search-app-v2:
+    build: .
+    ports:
+      - "3001:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    container_name: zoning-search-app-v2

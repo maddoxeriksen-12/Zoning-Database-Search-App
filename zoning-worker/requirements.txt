@@ -1,0 +1,12 @@
+supabase>=2.12.0
+httpx>=0.26.0
+python-dotenv
+requests==2.32.3
+pydantic==2.8.2
+pandas==2.2.2
+pdfplumber==0.11.4
+camelot-py==0.11.0
+opencv-python
+# python-Levenshtein==0.25.1  # Commented out due to build issues
+rapidfuzz==3.9.7
+PyYAML==6.0.2

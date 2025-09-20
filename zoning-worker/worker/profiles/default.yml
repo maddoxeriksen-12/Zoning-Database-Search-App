@@ -1,0 +1,15 @@
+threshold: 0.72
+aliases:
+  "Zone": zone
+  "District": zone
+  "Area (Square feet) (Interior Lots)": lot_area_interior_sqft
+  "Frontage (Interior Lots)": frontage_interior_ft
+  "Area (Square feet) (Corner Lots)": lot_area_corner_sqft
+  "Frontage (feet) (Corner Lots)": frontage_corner_ft
+  "Front Yard (Principal Building)": pb_front_yard_ft
+  "Side Yard (Principal Building)": pb_side_yard_ft
+  "Rear Yard (Principal Building)": pb_rear_yard_ft
+  "Max building coverage (%)": max_building_coverage_pct
+  "Max Lot Coverage (%)": max_lot_coverage_pct
+  "Feet (Max Height Prin. Building)": max_height_ft
+  "Stories (Max Height Prin. Building)": max_height_stories
